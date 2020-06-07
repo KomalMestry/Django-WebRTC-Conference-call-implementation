@@ -24,7 +24,7 @@ SECRET_KEY = '3l6-45a7y9q&n_#828wsfk6)n=d!6yvyo8k1vp-k@q-5-=9bnu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -67,7 +67,6 @@ TEMPLATES = [
     },
 ]
 
-print('*********************************', BASE_DIR + '/templates')
 
 WSGI_APPLICATION = 'conference_prj.wsgi.application'
 
@@ -125,4 +124,3 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1', STATIC_ROOT)

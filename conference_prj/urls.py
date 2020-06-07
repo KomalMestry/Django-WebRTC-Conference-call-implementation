@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from conference_app.views import demo, audio, audio_video, HomeView
+from conference_app.views import demo, audio, audio_video, HomeView, user_register, auth_login, auth_logout, \
+    profile, exitcall, join, room,connect,multiple_video
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,13 @@ urlpatterns = [
     url(r'^home/', HomeView.as_view(), name="home"),
     url(r'^audio/', audio, name="audio"),
     url(r'^audio-video/', audio_video, name="audio-video"),
+    url(r'^register/$', user_register, name='user_register'),
+    url(r'login/$', auth_login, name='login'),
+    url(r'profile/$', profile, name='profile'),
+    url('signout', auth_logout, name='logout'),
+    url('room/(?P<name>.+)', room, name='room'),
+    url('join', join, name='join'),
+    url('exit/', exitcall, name='exit'),
+    url(r'connect/$', connect, name='connect'),
+    url(r'multiple_video/$', multiple_video, name='multiple_video'),
 ]

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--<head>-->
+<!--    <script>-->
+<!--    console.log("@@@@@@@@@@@@@@@@@@@@@@")-->
+<!--  var joinconference = document.querySelector('button#joinconference');-->
+<!--  joinconference.onclick(window.location.replace($('#join-room-name-entry').value));-->
+<!--</script>-->
+<!--</head>-->
+<div class="join-flow-widget conference-join conference-join--call">
+    <div class="app-logo">
+
+<h1 class="conference-join__title">
+<span>Join a conference</span></h1>
+<!--        <form class="conference-join__form">-->
+<label for="join-room-name-entry" class="conference-join__label">
+    <span>To join, enter the conference name</span></label> <div class="conference-join__input-group">
+    <input type="text" id="join-room-name-entry" class="conference-join__input">
+        <div class="conference-join__input-url"><br></div>
+    <div><a href="{% url 'connect' %}"><input type="submit" id="connect"
+                                                 value="Join" onclick="play()"></a>
+    <audio id="audio" src="http://blog.tmcnet.com/blog/tom-keating/sounds/24-ring-tone-4.mp3"></audio></div>
+         <div>{% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+             {% endif %}</div>
+        <div>
+<!--            <input type="button" value="PLAY" onclick="play()">-->
+
+    </div>
+<!--        </form>-->
+    </div>
+</div>
+<script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
+
+
+{% endblock content %}
